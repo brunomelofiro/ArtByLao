@@ -1,0 +1,48 @@
+{
+  "name": "Art by Lao",
+  "description": "",
+  "version": "0.1.0",
+  "type": "project",
+  "keywords": [],
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Luis Delacruz",
+      "email": "luis@luisdelacruz.io",
+      "homepage": "https://wwww.luisdelacruz.io"
+    },
+    {
+      "name": "Bruno Melofiro",
+      "email": "bruno@brunomelofiro.com",
+      "homepage": "https://brunomelofiro.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "composer/installers": "~1.0",
+    "vlucas/phpdotenv": "^2.4.0",
+    "wpackagist-plugin/wp-native-php-sessions": "^0.6.0",
+    "wpackagist-theme/dazzling": "2.1.1"
+  },
+  "config": {
+    "vendor-dir": "vendor",
+    "preferred-install": "dist",
+    "secure-http": false
+  },
+  "extra": {
+    "installer-paths": {
+      "wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    }
+  }
+}
