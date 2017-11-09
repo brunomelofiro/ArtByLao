@@ -9,7 +9,10 @@
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-less": "latest",
     "grunt-contrib-nodeunit": "latest",
-    "grunt-contrib-uglify": "latest"
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-newer": "latest"
+
   },
   "dependencies": {
     "default": "^0.1.1",
