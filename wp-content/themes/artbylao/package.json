@@ -11,7 +11,9 @@
     "grunt-contrib-nodeunit": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-newer": "latest"
+    "grunt-newer": "latest",
+    "less-plugin-clean-css": "latest",
+    "less-plugin-autoprefix": "latest"
 
   },
   "dependencies": {

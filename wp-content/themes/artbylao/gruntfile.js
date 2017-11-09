@@ -38,10 +38,9 @@ module.exports = function(grunt) {
       target: {
         files: [{
           expand: true,
-          cwd: 'css/',
-          src: ['**/*.css','!**/*.min.css'],
-          dest: 'css/min/',
-          ext: '.min.css'
+          cwd: 'assets/css/',
+          src: ['main-style.css'],
+          dest: 'assets/css/'
         }]
       }
     },
@@ -60,31 +59,31 @@ module.exports = function(grunt) {
       }
     },
     less: {
-         development: {
-           options: {
-             compress: true,
-             yuicompress: true,
-             optimization: 2
-           },
-           files: {
-             "css/main.css": "less/main.less" // destination file and source file
-           }
-         }
+     development: {
+       options: {
+         compress: true,
+         yuicompress: true,
+         optimization: 2
        },
-       browserSync: {
-           dev: {
-               bsFiles: {
-                   src : [
-                       'app/css/*.css',
-                       'app/*.html'
-                   ]
-               },
-               options: {
-                   watchTask: true,
-                   server: './app'
-               }
-           }
-         },
+       files: {
+         "assets/css/main-less.css": "assets/less/main.less"
+       }
+     }
+    },
+  browserSync: {
+    dev: {
+       bsFiles: {
+           src : [
+               'app/css/*.css',
+               'app/*.html'
+           ]
+       },
+       options: {
+           watchTask: true,
+           server: './app'
+       }
+    }
+  },
   // what for css and js files to perform minimizing--------------------------------------
     watch: {
     scripts: {
@@ -101,14 +100,15 @@ module.exports = function(grunt) {
       separator: '/*= Concat =*/',
     },
    dist: {
-     src: ['css/min/parent-style.min.css','css/min/child-style.min.css'],
-     dest: 'css/min/default-style.min.css',
+     src: ['../dazzling/inc/css/bootstrap.min.css','../dazzling/inc/css/font-awesome.min.css','../dazzling/style.css', 'assets/css/main-less.css'],
+     dest: 'assets/css/main-style.css',
    }
   }
 });
-    grunt.registerTask('default', ['uglify', 'cssmin','concat', 'less','watch']);
+    grunt.registerTask('default', ['less','concat','cssmin','uglify','watch']);
     grunt.registerTask('watch',['watch']);
-    grunt.registerTask('build',['uglify', 'cssmin','concat', 'less'])
+    grunt.registerTask('build',['less','concat','cssmin','uglify']);
+    grunt.registerTask('min',['cssmin']);
   // ===========================================================================
   // LOAD GRUNT PLUGINS ========================================================
   // ===========================================================================
