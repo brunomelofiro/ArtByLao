@@ -106,14 +106,15 @@ module.exports = function(grunt) {
    }
   }
 });
-    grunt.registerTask('default', ['uglify', 'cssmin','concat', 'less']);
+    grunt.registerTask('default', ['uglify', 'cssmin','concat', 'less','watch']);
     grunt.registerTask('watch',['watch']);
+    grunt.registerTask('build',['uglify', 'cssmin','concat', 'less'])
   // ===========================================================================
   // LOAD GRUNT PLUGINS ========================================================
   // ===========================================================================
   // we can only load these if they are in our package.json
   // make sure you have run npm install so our app can find these
-  
+
   //minification packages
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
