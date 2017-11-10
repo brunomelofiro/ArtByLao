@@ -102,13 +102,17 @@ module.exports = function(grunt) {
    dist: {
      src: ['../dazzling/inc/css/bootstrap.min.css','../dazzling/inc/css/font-awesome.min.css','../dazzling/style.css', 'assets/css/main-less.css'],
      dest: 'assets/css/main-style.css',
+   },
+   extras: {
+     src: ['../dazzling/inc/js/bootstrap.min.js', '../dazzling/inc/js/main.js', 'assets/js/*.js', '!assets/js/main-script.js'],
+     dest: 'assets/js/main-script.js',
    }
   }
 });
     grunt.registerTask('default', ['less','concat','cssmin','uglify','watch']);
     grunt.registerTask('watch',['watch']);
     grunt.registerTask('build',['less','concat','cssmin','uglify']);
-    grunt.registerTask('min',['cssmin']);
+    grunt.registerTask('ugly',['concat']);
   // ===========================================================================
   // LOAD GRUNT PLUGINS ========================================================
   // ===========================================================================
