@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-browser-sync": "latest",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-cssmin": "latest",
     "grunt-contrib-imagemin": "latest",
     "grunt-contrib-jshint": "latest",
@@ -12,9 +12,8 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-newer": "latest",
-    "less-plugin-clean-css": "latest",
-    "less-plugin-autoprefix": "latest"
-
+    "less-plugin-autoprefix": "latest",
+    "less-plugin-clean-css": "latest"
   },
   "dependencies": {
     "default": "^0.1.1",

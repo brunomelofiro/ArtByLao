@@ -23,10 +23,9 @@ module.exports = function(grunt) {
        target: {
         files: [{
           expand: true,
-          cwd: 'js/',
-          src: ['*.js'],
-          dest: 'js/min/',
-          ext: '.min.js'
+          cwd: 'assets/js/',
+          src: ['main-script.js'],
+          dest: 'assets/js/'
         }]
       }
     },
@@ -70,25 +69,28 @@ module.exports = function(grunt) {
        }
      }
     },
-  browserSync: {
-    dev: {
-       bsFiles: {
-           src : [
-               'app/css/*.css',
-               'app/*.html'
-           ]
-       },
+    browserSync: {
+      dev: {
+         bsFiles: {
+             src : [
+                 'assets/css/*.css',
+                 'assets/js/*.js',
+                 '**/*.html',
+                 '**/*.php'
+             ]
+         },
        options: {
            watchTask: true,
-           server: './app'
+           proxy: 'http://artbylao.local/'
        }
     }
   },
   // what for css and js files to perform minimizing--------------------------------------
     watch: {
     scripts: {
-      files: ['**/*.js','css/*.css', 'less/**/*.less'],
-      tasks: ['default'],
+      files: ['**/*.js','**/*.css', '**/*.less'
+    ],
+      tasks: ['build'],
       options: {
         spawn: false,
       },
@@ -107,12 +109,13 @@ module.exports = function(grunt) {
      src: ['../dazzling/inc/js/bootstrap.min.js', '../dazzling/inc/js/main.js', 'assets/js/*.js', '!assets/js/main-script.js'],
      dest: 'assets/js/main-script.js',
    }
-  }
+ },
+
 });
-    grunt.registerTask('default', ['less','concat','cssmin','uglify','watch']);
+    grunt.registerTask('default', ['browserSync', 'less','concat','cssmin','uglify', 'watch']);
     grunt.registerTask('watch',['watch']);
     grunt.registerTask('build',['less','concat','cssmin','uglify']);
-    grunt.registerTask('ugly',['concat']);
+    grunt.registerTask('sync',['browserSync', 'watch']);
   // ===========================================================================
   // LOAD GRUNT PLUGINS ========================================================
   // ===========================================================================
